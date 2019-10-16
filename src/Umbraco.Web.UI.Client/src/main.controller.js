@@ -27,6 +27,7 @@ function MainController($scope, $location, appState, treeService, notificationsS
         .load(["https://www.bing.com/api/maps/mapcontrol?branch=release", "lib/5644/script.js", "lib/5644/styles.css"], $scope, "js")
         .then(function () {
             console.log("Success: Loaded various asset");
+            console.log("window.Microsoft: " + window.Microsoft);
         }, function () {
             console.log("Error: Failed to load assets");
         });

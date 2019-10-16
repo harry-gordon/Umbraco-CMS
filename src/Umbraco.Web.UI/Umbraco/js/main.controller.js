@@ -22,6 +22,15 @@ function MainController($scope, $location, appState, treeService, notificationsS
     $scope.login = {};
     $scope.tabbingActive = false;
 
+    // Manual test for #5644 fix
+    assetsService
+        .load(["https://www.bing.com/api/maps/mapcontrol?branch=release", "lib/5644/script.js", "lib/5644/styles.css"], $scope, "js")
+        .then(function () {
+            console.log("Success: Loaded various asset");
+        }, function () {
+            console.log("Error: Failed to load assets");
+        });
+
     // Load TinyMCE assets ahead of time in the background for the user
     // To help with first load of the RTE
     tinyMceAssets.forEach(function (tinyJsAsset) {
